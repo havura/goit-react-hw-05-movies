@@ -8,7 +8,7 @@ export const getTrending = () => {
   return data;
 };
 
-export const getSearchMovie = () => {
+export const getSearchMovie = query => {
   const data = axios.get(
     `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
   );
@@ -17,6 +17,7 @@ export const getSearchMovie = () => {
 
 export const getMovieById = id => {
   const data = axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  console.log(data);
   return data;
 };
 
