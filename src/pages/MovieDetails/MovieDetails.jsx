@@ -1,7 +1,7 @@
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieById } from 'api';
-// import css from '../MovieDetails/MovieDetails.module.css'
+import css from '../MovieDetails/MovieDetails.module.css';
 import { BiArrowBack } from 'react-icons/bi';
 
 const MovieDetails = () => {
@@ -27,11 +27,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={detailsLink} state={{ from: location }}>
+      <Link className={css.link} to={detailsLink} state={{ from: location }}>
         <BiArrowBack />
         Go Back
       </Link>
-      <div>
+      <div className={css.wrapper}>
         <img
           src={
             poster_path
@@ -39,37 +39,39 @@ const MovieDetails = () => {
               : 'https://svgsilh.com/svg/2207743.svg'
           }
           alt={title}
-          width="300px"
+          width="240px"
         />
+
+        <div>
+          <h1>
+            {original_title }
+            <span> ({release_date})</span>
+          </h1>
+          <p> User Score: {Math.round(vote_average * 10)}%</p>
+          <h2>Overview</h2>
+          <p>{overview}</p>
+          <h2>Genres</h2>
+          {genres && (
+            <ul>
+              {genres.map(gener => (
+                <li key={gener.id}>{gener.name}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-      <div>
-        <h1>
-          {original_title}
-          <span>({release_date})</span>
-        </h1>
-        <p> User Score: {Math.round(vote_average * 10)}%</p>
-        <h2>Overview</h2>
-        <p>{overview}</p>
-        <h2>Genres</h2>
-        {genres && (
-          <ul>
-            {genres.map(gener => (
-              <li key={gener.id}>{gener.name}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div>
+      <div className={css.secondWrapper}>
         <h2>Additional information:</h2>
-        <ul>
+        <ul className={css.list}>
           <li>
-            <Link to={'cast'}>Cast</Link>
+            <Link className={css.list__link} to={'cast'}>Cast</Link>
           </li>
           <li>
-            <Link to={'reviews'}>Reviews</Link>
+            <Link className={css.list__link} to={'reviews'}>Reviews</Link>
           </li>
         </ul>
       </div>
+
       <Outlet />
     </>
   );

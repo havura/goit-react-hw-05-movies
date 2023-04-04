@@ -1,0 +1,20 @@
+.navList {
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding: 0;
+
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.navList a {
+  text-decoration: none;
+  color: black;
+}
+.navList a:hover,
+:focus {
+  color: rgb(236, 19, 19);
+}

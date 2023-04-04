@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'api';
+import css from '../Reviews/Reviews.module.css'
 
 const Review = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const Review = () => {
   }, [id]);
 
   return (
-    <ul>
+    <ul className={css.reviewWrapper}>
       {rewiews.map(({ id, content, author }) => (
         <li key={id}>
           <h3>Author:{author}</h3>

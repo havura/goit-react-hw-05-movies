@@ -1,0 +1,8 @@
+.reviewWrapper {
+  margin-top: 10px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+}

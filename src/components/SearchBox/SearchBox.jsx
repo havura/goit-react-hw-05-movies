@@ -1,5 +1,6 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
+import css from '../SearchBox/SearchBox.module.css'
 
 const SearchBox = ({ onSubmit }) => {
   const location = useLocation();
@@ -7,13 +8,13 @@ const SearchBox = ({ onSubmit }) => {
 
   return (
     <>
-     <Link to={detailsLink} state={{ from: location }}>
+      <NavLink className={css.link } to={detailsLink} state={{ from: location }}>
         <BiArrowBack />
         Go Back
-      </Link>
-    <form onSubmit={onSubmit}>
-      <input type="text" name="search" placeholder="Enter the Movie name" />
-      <button type="submit">Search</button>
+      </NavLink>
+    <form onSubmit={onSubmit} className={css.form}>
+        <input className={css.input} type="text" name="search" placeholder="Enter the Movie name" />
+        <button className={css.btnSearch } type="submit">Search</button>
       </form>
       </>
   );
