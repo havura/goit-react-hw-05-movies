@@ -64,10 +64,10 @@ const MovieDetails = () => {
         <h2>Additional information:</h2>
         <ul className={css.list}>
           <li>
-            <Link className={css.list__link} to={'cast'}>Cast</Link>
+            <Link className={css.list__link} to={'cast'} state={{from: location.state.from}}>Cast</Link>
           </li>
           <li>
-            <Link className={css.list__link} to={'reviews'}>Reviews</Link>
+            <Link className={css.list__link} to={'reviews'} state={{from: location.state.from}}>Reviews</Link>
           </li>
         </ul>
       </div>
